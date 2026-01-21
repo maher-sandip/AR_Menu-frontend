@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - Add Dish</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="back" href="/">← Back</a>
+    <div class="brand">Admin Panel</div>
+    <div class="tag">Add Dish</div>
+  </header>
+
+  <main class="container">
+    <div class="panel">
+      <h2>Add New Dish</h2>
+
+      <form action="/admin/dish" method="POST" enctype="multipart/form-data" style="display:grid; gap:12px;">
+        <input name="name" placeholder="Dish Name" required style="padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.06); color:white;">
+        <input name="price" type="number" placeholder="Price" required style="padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.06); color:white;">
+        <textarea name="description" placeholder="Description" rows="3" style="padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.06); color:white;"></textarea>
+
+        <label style="color:#c9c9c9;">Upload GLB Model (required)</label>
+        <input name="model" type="file" accept=".glb" required>
+
+        <label style="color:#c9c9c9;">Upload Thumbnail (optional)</label>
+        <input name="thumb" type="file" accept="image/*">
+
+        <button class="btn" type="submit" style="justify-self:start;">Save Dish</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AR Food Menu</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">AR Food Menu</div>
+    <div class="tag">Final Year MCA Project</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Discover Your Meal in 3D</h1>
+      <p>Tap any dish to view it in AR (markerless, on your table).</p>
+    </section>
+
+    <section class="grid">
+      {% for dish in dishes %}
+      <article class="card">
+        <div class="thumb">
+          <img src="/uploads/thumbnails/{{ dish.thumb }}" alt="{{ dish.name }}">
+        </div>
+
+        <div class="card-body">
+          <h3>{{ dish.name }}</h3>
+          <p class="desc">{{ dish.desc }}</p>
+
+          <div class="meta">
+            <span class="price">₹{{ dish.price }}</span>
+            <a class="btn" href="/ar/{{ dish.id }}">View in AR</a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Built with Flask + Model Viewer (WebAR)</span>
+  </footer>
+</body>
+</html>
